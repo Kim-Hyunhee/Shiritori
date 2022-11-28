@@ -63,15 +63,19 @@
       const $result = document.querySelector("#result");
 
       const onClickNumber = (event) => {
-        if (operator) {
+        if (!operator) {
+          numOne += event.target.textContent;
+          $result.value += event.target.textContent;
+          return;
+        }
+        // 이 아래로는 operator가 존재하는 경우에만 실행됨
+        else {
           if (!numTwo) {
             $result.value = "";
           }
           numTwo += event.target.textContent;
-        } else {
-          numOne += event.target.textContent;
+          $result.value += event.target.textContent;
         }
-        $result.value += event.target.textContent;
       };
       document.querySelector("#num-0").addEventListener("click", onClickNumber);
       document.querySelector("#num-1").addEventListener("click", onClickNumber);
