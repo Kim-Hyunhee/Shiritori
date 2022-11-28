@@ -27,6 +27,15 @@
         numbers.splice(index, 1);
       }
       console.log(answer);
+
+      const tries = [];
+      function chechInput(input) {}
+      $form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const value = $input.value;
+        $input.value = "";
+        const valid = chechInput(value);
+      });
     </script>
   </body>
 </html>
