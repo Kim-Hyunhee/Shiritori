@@ -29,9 +29,20 @@
       console.log(answer);
 
       const tries = [];
-      function checkInput(input) {}
+      function checkInput(input) {
+        if (input.length !== 4) {
+          return alert("4자리 숫자를 입력해 주세요.");
+        }
+        if (new Set(input).size !== 4) {
+          return alert("중복되지 않게 입력해 주세요.");
+        }
+        if (tries.includes(input)) {
+          return alert("이미 시도한 값입니다.");
+        }
+        return true;
+      }
       $form.addEventListener("submit", (event) => {
-        event.preventDefault();
+        event.preventDefault(); // 폼 태그의 기본 동작 취소 => submit 이벤트 발생할 때 브라우저 새로고침
         const value = $input.value;
         $input.value = "";
         const valid = checkInput(value);
