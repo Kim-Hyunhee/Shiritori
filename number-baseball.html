@@ -46,6 +46,18 @@
         const value = $input.value;
         $input.value = "";
         const valid = checkInput(value);
+        if (!valid) return;
+        if (answer.join("") === value) {
+          $logs.textContent = "홈런!";
+          return;
+        }
+        if (tries.length >= 9) {
+          const message = document.createTextNode(
+            `패배! 정답은 ${answer.join("")}`
+          );
+          $logs.appendChild(message);
+          return;
+        }
       });
     </script>
   </body>
