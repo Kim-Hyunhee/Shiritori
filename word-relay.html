@@ -12,19 +12,26 @@
     <button>입력</button>
     <script>
       const number = Number(prompt("몇 명이 참가하나요?"));
-
       const $input = document.querySelector("input");
-
       const $button = document.querySelector("button");
+      let word; //제시어
+      let newWord; // 현재 단어
 
       const onClickButton = () => {
-        console.log("버튼 클릭");
+        if (!word) {
+          // 제시어가 비어 있는가?
+          word = newWord; // 입력한 단어가 제시어가 된다.
+          $word.textContent = word; // 화면에 제시어 표시
+        } else {
+          //비어 있지 않다.
+        }
       };
-      $button.addEventListener("click", onClickButton);
 
-      const onInput = () => {
-        console.log("글자 입력", event.target.value);
+      const onInput = (event) => {
+        newWord = event.target.value; // 입력하는 단어를 현재 단어로
       };
+
+      $button.addEventListener("click", onClickButton);
       $input.addEventListener("input", onInput);
     </script>
   </body>
