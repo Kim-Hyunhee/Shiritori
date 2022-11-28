@@ -14,6 +14,7 @@
       const number = Number(prompt("몇 명이 참가하나요?"));
       const $input = document.querySelector("input");
       const $button = document.querySelector("button");
+      const $word = document.querySelector("word");
       let word; //제시어
       let newWord; // 현재 단어
 
@@ -24,9 +25,16 @@
           $word.textContent = word; // 화면에 제시어 표시
         } else {
           //비어 있지 않다.
+          if (word[word.length - 1] === newWord[0]) {
+            //입력한 단어가 올바른가?
+            // 올바르다.
+            word = newWord; // 현대 단어를 제시어에 저장한다.
+            $word.textContent = word; // 화면에 제시어 표시
+          } else {
+            // 올바르지 않다.
+          }
         }
       };
-
       const onInput = (event) => {
         newWord = event.target.value; // 입력하는 단어를 현재 단어로
       };
